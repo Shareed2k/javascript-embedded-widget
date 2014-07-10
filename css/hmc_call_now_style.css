@@ -1,0 +1,206 @@
+/*GLOBAL DEFINITIONS*/
+/**
+* Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+* http://cssreset.com
+*/
+
+
+@media only screen
+and (min-width : 600px) {
+    /**
+    * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/)
+    * Richard Clark (http://richclarkdesign.com)
+    * http://cssreset.com
+    */
+    html, body, div, span, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    abbr, address, cite, code,
+    del, dfn, em, img, ins, kbd, q, samp,
+    small, strong, sub, sup, var,
+    b, i,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section, summary,
+    time, mark, audio, video {
+        margin:0;
+        padding:0;
+        border:0;
+        outline:0;
+        font-size:100%;
+        vertical-align:baseline;
+        background:transparent;
+    }
+    body {
+        line-height:1;
+    }
+    article,aside,details,figcaption,figure,
+    footer,header,hgroup,menu,nav,section {
+        display:block;
+    }
+    nav ul {
+        list-style:none;
+    }
+    blockquote, q {
+        quotes:none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content:'';
+        content:none;
+    }
+    a {
+        margin:0;
+        padding:0;
+        font-size:100%;
+        vertical-align:baseline;
+        background:transparent;
+    }
+    /* change colours to suit your needs */
+    ins {
+        background-color:#ff9;
+        color:#000;
+        text-decoration:none;
+    }
+    /* change colours to suit your needs */
+    mark {
+        background-color:#ff9;
+        color:#000;
+        font-style:italic;
+        font-weight:bold;
+    }
+    del {
+        text-decoration: line-through;
+    }
+    abbr[title], dfn[title] {
+        border-bottom:1px dotted;
+        cursor:help;
+    }
+    table {
+        border-collapse:collapse;
+        border-spacing:0;
+    }
+    /* change border colour to suit your needs */
+    hr {
+        display:block;
+        height:1px;
+        border:0;
+        border-top:1px solid #cccccc;
+        margin:1em 0;
+        padding:0;
+    }
+    input, select {
+        vertical-align:middle;
+    }
+
+    #hmc-call-now-wrapper{
+        position: fixed;
+        font-family: 'Roboto', Arial, sans-serif;
+        top: 20px;
+        z-index: 3000;
+    }
+
+    #hmc-call-now-section{
+        top:0;
+        width:315px;
+        height:310px;
+        background:#1c3e92;
+        color:#fff;
+        padding-left: 10px;
+        padding-right: 10px;
+        display: inline-block;
+        line-height: 25px;
+    }
+    #hmc-call-now-section p{
+        font-family: Tahoma,'Roboto', Arial, sans-serif;
+        font-size:14px;
+        line-height: 16px;
+        font-weight: bold;
+    }
+
+    #hmc-call-now-section input[type="text"]{
+        padding:3px;
+        width: 150px;
+        height: 15px;
+        font-size:10px;
+    }
+
+    #hmc-call-submit-btn{
+        background:#FF411E;
+        color:#fff;
+        font-weight:bold;
+        font-size:10px;
+        padding:5px;
+        border:none;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+    #hmc-call-now-btn{
+        display:inline-block;
+        top:0;
+        cursor: pointer;
+    }
+
+
+    #hmc-call-now-close{
+        margin: -4px 5px;
+        cursor: pointer;
+        float:right;
+    }
+
+
+    .hmc-call-now-blue{
+        color:#4ABCF0;
+        font-size:13px;
+    }
+
+    .hmc-call-now-maintitle{
+        margin-top: 8px;
+        margin-bottom: 13px;
+        font-size: 14px;
+        font-weight:bold;
+    }
+
+    #hmc-call-now-validate{
+        color:#f4c239;
+        font-size: 15px;
+        font-style: italic;
+        padding-bottom: 12px;
+        display: none;
+        font-weight: bold;
+    }
+
+    #hmc-call-now-thankyou{
+        color:#f4c239;
+        font-size: 15px;
+        font-style: italic;
+        padding-bottom: 3px;
+        display: none;
+        font-weight: bold;
+    }
+
+    .hmc-call-now-help{
+        padding-top: 55px;
+        padding-bottom: 10px;
+    }
+
+    .hmc-call-now-ul li {
+        line-height: 15px;
+        font-size: 13px;
+    }
+
+    .region-call-now{
+        position: fixed;
+        top: 10%;
+        z-index: 3000;
+    }
+}
+
+@media only screen
+and (max-width : 600px) {
+    #hmc-call-now-wrapper{
+        display: none;
+    }
+}
