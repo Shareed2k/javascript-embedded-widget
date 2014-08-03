@@ -87,7 +87,7 @@ CMS_APP.loadUserParams = function(){
         }
     }
 
-    if (typeof CMS == 'undefined') {
+    if (typeof CMS === 'undefined') {
         CMS_APP.loadModule('tools/click2call/js/cms.js', function(){
             CMS.initTracking();
         });
