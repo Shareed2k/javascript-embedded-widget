@@ -17,7 +17,7 @@ CMS_APP.heredoc = function(func) {
 };
 
 CMS_APP.checkIfJqueryLoaded = function(){
-    if (typeof window.jQuery === 'undefined' || window.jQuery.fn.jquery !== '2.1.0') {// || window.jQuery.fn.jquery !== '2.1.1'
+    if (typeof window.jQuery === 'undefined' || window.jQuery.fn.jquery !== '1.11.1') {// || window.jQuery.fn.jquery !== '2.1.1'
         var script = document.createElement('script');
         script.type = "text/javascript";
 
@@ -33,7 +33,7 @@ CMS_APP.checkIfJqueryLoaded = function(){
             }
         }
 
-        script.src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js";
+        script.src = "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js";
         (document.getElementsByTagName('head')[0] || document.documentElement).appendChild(script);
     }else{
         CMS_APP.jQuery = window.jQuery;
@@ -43,7 +43,6 @@ CMS_APP.checkIfJqueryLoaded = function(){
 
 CMS_APP.main = function(){
     CMS_APP.jQuery(document).ready(function() {
-        CMS_APP.url_queries = CMS_APP.queryParser(CMS_APP.getLocation(CMS_APP.curScript.src).search);
         CMS_APP.createForm();
         CMS_APP.manipulateForm();
     });
@@ -148,7 +147,7 @@ CMS_APP.manipulateForm = function(){
     var c2c_position_win = 'left';
     var width_window = '-336px';
 
-    if(CMS_APP.url_queries['position'] !== 'undefined'){
+    if(CMS_APP.url_queries['position'] !== undefined){
         c2c_position_win = CMS_APP.url_queries['position'];
     }
 
@@ -179,7 +178,7 @@ CMS_APP.manipulateForm = function(){
         if(user_phone.length > 5){
 
             var call_lead = {"call":{"phone": user_phone, "tid": tid}};
-            var token = url_queries['token'];
+            var token = CMS_APP.url_queries['token'];
 
             CMS_APP.jQuery.ajax({
                 url: "http://api1.medicaladvisor.com/api/v1/creates/calls",
@@ -195,17 +194,21 @@ CMS_APP.manipulateForm = function(){
                     submit_form_btn.prop('disabled', true);
                     validate_div.hide();
                     phone_input.val('');
+                    CMS.eraseCookie('ho_tid');
                     CMS_APP.jQuery('#hmc-call-now-thankyou').show();
                     setTimeout(function(){
                         wrapper.animate((c2c_position_win == 'left' ? {left:width_window} : {right:width_window}), 'linear');
+                        form.clear();
                         CMS_APP.jQuery('#hmc-call-now-thankyou').hide();
                     },3000);
                 },
                 error : function (xhr, ajaxOptions, thrownError){
+                	phone_input.focus();
                     validate_div.show();
                 }
             });
         }else{
+        	phone_input.focus();
             validate_div.show();
         }
     });
@@ -249,13 +252,13 @@ CMS_APP.createForm = function(){
     var host = CMS_APP.getLocation(CMS_APP.curScript.src).host;
     var position = 'left';
 
-    if(CMS_APP.url_queries['position'] !== 'undefined'){
+    if(CMS_APP.url_queries['position'] !== undefined){
         position = CMS_APP.url_queries['position'];
     }
 
     var data = {
-        host: host,
-        position: position
+        'host': host,
+        'position': position
     };
 
     //console.log(CMS_APP.getLocation(CMS_APP.curScript.src).search.split('?')[1]);
@@ -276,6 +279,7 @@ CMS_APP.createForm = function(){
 /* ==== main app ==== */
 
 CMS_APP.loadCSSFile();
+CMS_APP.url_queries = CMS_APP.queryParser(CMS_APP.getLocation(CMS_APP.curScript.src).search);
 
 if (typeof CMS == 'undefined') {
     CMS_APP.loadModule('js/cms.js', function(){
